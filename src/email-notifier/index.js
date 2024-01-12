@@ -16,7 +16,7 @@ exports.email_notifier = (event, context) => {
     transporter.sendMail({
         from: process.env.EMAIL_FROM,
         to: process.env.EMAIL_TO,
-        subject: '',
+        subject: 'NEW FILE UPLOADED',
         text: event.data,
     }).then().catch(console.error);
 };
