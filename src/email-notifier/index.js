@@ -7,15 +7,15 @@ exports.email_notifier = (event, context) => {
           host: 'in.mailjet.com',
           port: 2525,
           auth: {
-            user: '',
-            pass: '',
+            user: process.env.MAILJET_USERNAME,
+            pass: process.env.MAILJET_PASSWORD,
           },
         })
       );
     
     transporter.sendMail({
-        from: '',
-        to: '',
+        from: process.env.EMAIL_FROM,
+        to: process.env.EMAIL_TO,
         subject: '',
         text: event.data,
     }).then().catch(console.error);
