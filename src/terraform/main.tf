@@ -101,13 +101,6 @@ resource "google_cloudfunctions_function" "function" {
   source_archive_object = google_storage_bucket_object.archive.name
   entry_point = "email_notifier"
 
-  environment_variables = {
-    MAILJET_USERNAME = "",
-    MAILJET_PASSWORD = "",
-    EMAIL_FROM = "",
-    EMAIL_TO = ""
-  }
-
   depends_on = [
     google_storage_bucket_object.archive,
     google_pubsub_topic.topic
